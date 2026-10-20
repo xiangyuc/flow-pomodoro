@@ -27,6 +27,7 @@ enum Theme {
     static let bark = Color(hex: 0x6E5B3E)
 
     static let mossNSColor = NSColor(hex: 0x46752F)
+    static let leafNSColor = NSColor(hex: 0x9CBF63)
     static let groundNSColor = NSColor(hex: 0xF5F2EA)
 }
 

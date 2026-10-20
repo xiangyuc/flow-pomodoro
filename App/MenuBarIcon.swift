@@ -65,7 +65,7 @@ enum MenuBarIcon {
             }
 
         case .cue:
-            Theme.mossNSColor.setFill()
+            cueColor().setFill()
             circle(center: center, radius: 6.5).fill()
 
         case .flow:
@@ -92,6 +92,13 @@ enum MenuBarIcon {
                 wave.stroke()
             }
         }
+    }
+
+    /// Moss reads well on a light menu bar but sinks into a dark one, so use the brighter leaf green there.
+    /// The image is drawn on demand, so this follows the menu bar's own appearance.
+    private static func cueColor() -> NSColor {
+        let isDark = NSAppearance.currentDrawing().bestMatch(from: [.aqua, .darkAqua]) == .darkAqua
+        return isDark ? Theme.leafNSColor : Theme.mossNSColor
     }
 
     private static func circle(center: NSPoint, radius: CGFloat) -> NSBezierPath {
