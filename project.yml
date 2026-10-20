@@ -31,6 +31,7 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: com.example.FlowPomodoro
         MACOSX_DEPLOYMENT_TARGET: "14.0"
         SWIFT_VERSION: "5.0"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         ENABLE_HARDENED_RUNTIME: YES
         # Ad-hoc signing so it builds without an Apple developer team.
         # Set DEVELOPMENT_TEAM and CODE_SIGN_STYLE: Automatic to sign properly.

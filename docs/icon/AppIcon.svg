@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <!-- Flow Pomodoro app icon. macOS grid: 824 pt tile inset 100 pt, with a soft drop shadow. -->
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#1F2A22" flood-opacity="0.28"/>
+    </filter>
+  </defs>
+
+  <!-- Paper tile -->
+  <rect x="100" y="100" width="824" height="824" rx="185" fill="#F5F2EA" filter="url(#shadow)"/>
+  <rect x="100.5" y="100.5" width="823" height="823" rx="184.5" fill="none" stroke="#E3DDCF" stroke-width="1"/>
+
+  <!-- Timer ring: track, flow (leaf) and the first 25 minutes (moss), starting at 12 o'clock -->
+  <g transform="rotate(-90 512 512)" fill="none" stroke-width="30" stroke-linecap="round">
+    <circle cx="512" cy="512" r="300" stroke="#E0D9C9"/>
+    <circle cx="512" cy="512" r="300" stroke="#9CBF63" stroke-dasharray="1545 1885"/>
+    <circle cx="512" cy="512" r="300" stroke="#46752F" stroke-dasharray="1150 1885"/>
+  </g>
+
+  <!-- Tree-ring cross-section -->
+  <circle cx="512" cy="512" r="238" fill="#EDE4CF"/>
+  <g fill="none" stroke="#8B7552" stroke-width="7">
+    <circle cx="513" cy="511" r="44"/>
+    <circle cx="511" cy="513" r="80"/>
+    <circle cx="513" cy="512" r="108"/>
+    <circle cx="512" cy="510" r="150"/>
+    <circle cx="510" cy="512" r="178"/>
+    <circle cx="512" cy="513" r="208"/>
+  </g>
+  <circle cx="512" cy="512" r="232" fill="none" stroke="#6E5B3E" stroke-width="12"/>
+  <circle cx="513" cy="511" r="11" fill="#8B7552"/>
+</svg>

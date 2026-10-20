@@ -1,4 +1,4 @@
-# Flow Pomodoro
+# <img src="docs/icon/AppIcon-256.png" width="64" height="64" align="center" alt=""> Flow Pomodoro
 
 A calm macOS menu bar timer that treats 25 minutes as a **minimum, not a maximum**.
 
