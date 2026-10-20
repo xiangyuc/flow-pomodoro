@@ -1,0 +1,46 @@
+# Generate the Xcode project with: xcodegen generate
+name: FlowPomodoro
+options:
+  bundleIdPrefix: com.example
+  deploymentTarget:
+    macOS: "14.0"
+  createIntermediateGroups: true
+
+packages:
+  FlowCore:
+    path: FlowCore
+
+targets:
+  FlowPomodoro:
+    type: application
+    platform: macOS
+    sources:
+      - App
+    dependencies:
+      - package: FlowCore
+    info:
+      path: App/Info.plist
+      properties:
+        CFBundleDisplayName: Flow Pomodoro
+        CFBundleShortVersionString: "1.0"
+        CFBundleVersion: "1"
+        LSApplicationCategoryType: public.app-category.productivity
+        LSUIElement: true # menu bar only: no Dock icon, no main window
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.example.FlowPomodoro
+        MACOSX_DEPLOYMENT_TARGET: "14.0"
+        SWIFT_VERSION: "5.0"
+        ENABLE_HARDENED_RUNTIME: YES
+        # Ad-hoc signing so it builds without an Apple developer team.
+        # Set DEVELOPMENT_TEAM and CODE_SIGN_STYLE: Automatic to sign properly.
+        CODE_SIGN_STYLE: Manual
+        CODE_SIGN_IDENTITY: "-"
+
+schemes:
+  FlowPomodoro:
+    build:
+      targets:
+        FlowPomodoro: all
+    run:
+      config: Debug
