@@ -9,7 +9,7 @@ A calm macOS menu bar timer that treats 25 minutes as a **minimum, not a maximum
 - **Flow.** If you ignore the cue, the timer keeps counting up. An outer ring grows toward the 90-minute ceiling.
 - **Earned break.** Breaks scale with focus time at one minute per five minutes of focus: 25 min earns 5, 38 earns 8, 90 earns 18.
 - **Wrap up.** Gives you five more minutes to finish the current thought.
-- **Parking note.** Before a break, you write one line about where to pick up. It's shown during the break and when you come back.
+- **Parking note.** Before a break, you write one line about where to pick up. It's shown during the break and when you come back. It's used once: starting the next session clears it, so every break begins with a blank note.
 - **Ceiling.** At 90 minutes you get a real notification ("Take break" / "10 more min"), repeated every 10 minutes.
 - **Stats.** Day, week and month views: tree rings (one per session), a chart splitting the first 25 minutes from flow time, and a one-line insight.
 

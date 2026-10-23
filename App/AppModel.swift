@@ -23,10 +23,13 @@ final class AppModel {
     private(set) var cueUntil: Date? = nil
 
     var screen: Screen = .timer
-    /// The one-line "where to pick up" note, shown when you come back.
+    /// The one-line "where to pick up" note, shown during the break and when you come back.
+    /// It is used once: starting the next session moves it into `activeNote` and clears it.
     var parkedNote: String {
         didSet { defaults.set(parkedNote, forKey: Keys.note) }
     }
+    /// The note the current session started from, shown as "Working on".
+    private(set) var activeNote = ""
     /// What is being typed on the parking screen.
     var draftNote = ""
 
@@ -89,6 +92,8 @@ final class AppModel {
         now = Date()
         cueUntil = nil
         screen = .timer
+        activeNote = parkedNote
+        parkedNote = ""
         engine.startFocus(at: now)
     }
 
@@ -105,6 +110,7 @@ final class AppModel {
     func end() {
         now = Date()
         if let record = engine.endFocus(at: now) { append(record) }
+        activeNote = ""
     }
 
     func wrapUp() {
@@ -115,7 +121,8 @@ final class AppModel {
     func takeBreak() {
         now = Date()
         if let record = engine.takeBreak(at: now) { append(record) }
-        draftNote = parkedNote
+        draftNote = ""
+        activeNote = ""
         notifier.clearCeilingNudge()
     }
 
@@ -197,7 +204,8 @@ final class AppModel {
         case .ceilingNudge(let focused):
             notifier.postCeilingNudge(focused: focused, earnedBreak: engine.settings.earnedBreak(for: focused))
         case .wrapUpEnded:
-            draftNote = parkedNote
+            draftNote = ""
+            activeNote = ""
             if chimeEnabled { Sound.minimum.play() }
             if case .parking(let parked) = engine.phase {
                 notifier.postWrapUpEnded(earnedBreak: parked.earnedBreak)

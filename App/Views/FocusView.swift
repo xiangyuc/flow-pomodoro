@@ -25,8 +25,8 @@ struct FocusView: View {
                 )
             }
 
-            if !model.parkedNote.isEmpty {
-                NoteBlock(title: "Working on", note: model.parkedNote)
+            if !model.activeNote.isEmpty {
+                NoteBlock(title: "Working on", note: model.activeNote)
             }
 
             Spacer(minLength: 0)
